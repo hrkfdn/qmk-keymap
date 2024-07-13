@@ -1,7 +1,12 @@
 #pragma once
 
 // Increase debounce time to 10ms to prevent double keypresses
-#define DEBOUNCE 10
+// A debounce of 8 represents a minimum key press time of just under 1 refresh at 120Hz
+// Slightly higher than the default because we are using sym_eager_pk
+#ifdef DEBOUNCE
+#    undef DEBOUNCE
+#endif
+#define DEBOUNCE 12
 
 // At the time of this, there are 41 effects! That may be a bit too many to cycle through - keeping what I believe is the best.
 #ifdef RGB_MATRIX_ENABLE
